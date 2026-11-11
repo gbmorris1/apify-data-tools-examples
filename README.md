@@ -1,6 +1,6 @@
 # Apify data tools: usage examples
 
-Copy-paste examples for four data tools on the Apify Store. Each one returns clean JSON, CSV or Excel, needs no login to the source site, and is billed per result.
+Copy-paste examples for data tools on the Apify Store. Each one returns clean JSON, CSV or Excel, needs no login to the source site, and is billed per result.
 
 | Tool | What it returns | Price |
 |---|---|---|
@@ -8,6 +8,7 @@ Copy-paste examples for four data tools on the Apify Store. Each one returns cle
 | [ESPN Scores, Standings and Odds](https://apify.com/gbm11/espn-scores-standings-odds) | Scores, schedules, betting lines, standings, teams and news for NBA, NFL, MLB, NHL, college and soccer | $1.00 per 1,000 rows |
 | [Bulk Phone Number Validator](https://apify.com/gbm11/bulk-phone-number-validator-format-line-type-carrier) | Valid or not, E.164 format, line type (mobile, landline, VoIP), carrier, region, timezone | $0.50 per 1,000 numbers |
 | [New Business Registrations](https://apify.com/gbm11/new-business-registrations-secretary-of-state-search) | Newly registered businesses from Secretary of State records in NY, TX, CO, OR and CT | $1.00 per 1,000 records |
+| [Google News Scraper](https://apify.com/gbm11/google-news-scraper-search-by-keyword-date-and-country) | Google News articles by keyword, country, language and date range | $1.00 per 1,000 articles |
 
 ## Setup
 
@@ -72,6 +73,14 @@ Leagues are written as `sport/league`, for example `baseball/mlb`, `hockey/nhl`,
 ```json
 { "phoneNumbers": ["+1 415 555 2671", "020 7946 0958"], "defaultCountry": "GB", "onlyValid": false }
 ```
+
+**Google News Scraper**
+
+```json
+{ "queries": ["Tesla", "artificial intelligence"], "country": "US", "language": "en", "dateFrom": "2026-11-01", "dateTo": "2026-11-07", "maxItemsPerQuery": 500 }
+```
+
+Set both dates to search day by day and get past the 100-article limit of a single search.
 
 **New Business Registrations**
 
