@@ -19,6 +19,11 @@ Copy-paste examples for data tools on the Apify Store. Each one returns clean JS
 | [Shopify Products Scraper](https://apify.com/gbm11/shopify-products-scraper-any-store-prices-and-variants) | The full catalog of any Shopify store with prices, variants and stock | $1.00 per 1,000 products |
 | [Job Board Scraper](https://apify.com/gbm11/job-board-scraper-greenhouse-lever-and-ashby-jobs) | Open jobs from companies that hire through Greenhouse, Lever or Ashby | $1.50 per 1,000 jobs |
 | [Telegram Channel Scraper](https://apify.com/gbm11/telegram-channel-scraper-posts-views-and-media) | Posts, views and media from public Telegram channels | $1.00 per 1,000 posts |
+| [Google Autocomplete Scraper](https://apify.com/gbm11/google-autocomplete-scraper-keyword-suggestions) | Hundreds of real search suggestions from each seed keyword | $0.50 per 1,000 suggestions |
+| [Domain WHOIS and DNS Checker](https://apify.com/gbm11/domain-whois-dns-and-availability-checker-bulk) | Availability, registrar, registration dates and DNS records for any list of domains | $1.00 per 1,000 domains |
+| [Substack Scraper](https://apify.com/gbm11/substack-scraper-posts-likes-and-comments) | Posts, likes and comment counts from any Substack newsletter | $1.00 per 1,000 posts |
+| [Y Combinator Companies Scraper](https://apify.com/gbm11/y-combinator-companies-scraper-startups-by-batch) | Every YC startup by batch, industry and hiring status | $1.00 per 1,000 companies |
+| [Hacker News Scraper](https://apify.com/gbm11/hacker-news-scraper-search-stories-and-comments) | Stories and comments by keyword, date and points | $0.50 per 1,000 items |
 
 ## Setup
 
@@ -156,6 +161,40 @@ Leave the dates empty to get the last 7 days.
 { "channels": ["durov", "https://t.me/telegram"], "maxPostsPerChannel": 100 }
 ```
 
+**Google Autocomplete Scraper**
+
+```json
+{ "keywords": ["running shoes"], "expand": "both", "country": "us", "language": "en" }
+```
+
+`expand` is `none`, `alphabet` (adds a to z after the keyword), `questions` (adds how, what, why and similar) or `both`.
+
+**Domain WHOIS and DNS Checker**
+
+```json
+{ "domains": ["example.com", "my-new-brand-idea.io"], "includeDns": true }
+```
+
+**Substack Scraper**
+
+```json
+{ "publications": ["lennysnewsletter.com", "https://www.platformer.news"], "maxPostsPerPublication": 50, "includeBody": false }
+```
+
+**Y Combinator Companies Scraper**
+
+```json
+{ "batches": ["Winter 2026"], "status": "Active", "onlyHiring": true, "industryContains": "", "maxItems": 100 }
+```
+
+**Hacker News Scraper**
+
+```json
+{ "queries": ["Cloudflare"], "type": "all", "sortBy": "date", "minPoints": 0, "maxItemsPerQuery": 50 }
+```
+
+`type` is `story`, `show_hn`, `ask_hn`, `comment` or `all`.
+
 ## Notes
 
-These tools read public pages and official open data only. They are not affiliated with Google, Apple, ESPN, Shopify, Telegram, any job board or any state government.
+These tools read public pages and official open data only. They are not affiliated with Google, Apple, ESPN, Shopify, Telegram, Substack, Y Combinator, any job board, any domain registrar or any state government.
